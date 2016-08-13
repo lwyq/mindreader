@@ -1,0 +1,42 @@
+@import url(https://fonts.googleapis.com/css?family=Slabo+27px|Oswald);
+
+html{
+  height: 100%;
+}
+
+body{
+  height: 100%;
+  background-image: url("img/light-bg1.png");
+  color: black;
+  font-family: 'Oswald', sans-serif;
+  text-align: center;
+}
+
+h1{
+  color: black;
+  font-family: 'Oswald', sans-serif;
+}
+
+.title {
+  font-size: 5em;
+}
+
+.btn {
+  font-size: inherit;
+  color: white;
+  background-color: purple;
+  text-decoration: none;
+  padding: 1em;
+  margin-bottom: 1.5em;
+  display: inline-block
+}
+
+.guess {
+  font-size: 2em;
+  display: block;
+  margin: 0 auto 1em;
+}
+
+.trophy{
+  height: 40vmin;
+}
