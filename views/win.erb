@@ -6,17 +6,19 @@
     <link rel="stylesheet" href="style.css">
   </head>
 
-  <body>
-    <h1>You Win!</h1>
+  <body class="flex play">
+    <main class="flex-item">
+      <div class="text-wrapper">
+        <h1>You Win!</h1>
 
-    <img class="trophy" src="img/trophy.svg" alt="trophy">
+        <img class="trophy" src="img/trophy.svg" alt="Trophy">
 
-    <h2>
-      You guessed it! I was thinking of the number <%= secret_number %>.
-    </h2>
+        <h2>
+          You guessed it! I was thinking of the number <%= secret_number %>.
+        </h2>
 
-    <p>
-      <a class="btn" href="/new">Play Again</a>
-    </p>
+        <a class="btn" href="/new">Play Again</a>
+      </div>
+    </main>
   </body>
 </html>

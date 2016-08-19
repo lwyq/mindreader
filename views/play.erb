@@ -3,21 +3,28 @@
   <head>
     <meta charset="utf-8">
     <title>Guess The Number</title>
+    <meta name="description" content="Guess The Number web edition">
+    <meta name="author" content="Chen Hui Jing">
     <link rel="stylesheet" href="style.css">
   </head>
 
-  <body>
-      <h1>I'm thinking of a number between 1 and 100.</h1>
+  <body class="flex play">
+    <main class="flex-item">
 
-      <h2><%= guess_prompt %></h2>
+      <div class="text-wrapper">
+        <h1>I'm thinking of a number between 1 and 100.</h1>
 
-      <p><%= guess_description %></p>
+        <h2><%= guess_prompt %></h2>
 
-      <form action="/play" method="post">
-        <label>
-          <input class="guess" type="number" name="guessed_number" placeholder="Enter guess" autofocus />
+        <p><%= guess_description %></p>
+
+        <form action="/play" method="post">
+          <input class="guess-value" type="number" name="guessed_number" min="0" max="100" autofocus />
           <input class="btn" type="submit" value="Guess" />
-        </label>
-      </form>
+        </form>
+
+      </div>
+
+    </main>
   </body>
 </html>
