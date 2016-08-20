@@ -9,32 +9,8 @@ configure :development do
 end
 
 helpers do
-  def guessed_number
-    session['guessed_number']
-  end
-
-  def secret_number
-    session['secret_number']
-  end
-
-  def guess_description
-    return "" if guessed_number.nil?
-
-    if guessed_number < secret_number
-      too_what = "too low"
-    else
-      too_what = "too high"
-    end
-
-    "Your guess of #{guessed_number} was #{too_what}."
-  end
-
-  def guess_prompt
-    if no_guess_yet?
-      "Try to guess it!"
-    else
-      ["Nope!", "Sorry!", "Try Again!", "Drat!", "Darn it!", "Hah, no!"].sample
-    end
+  def calc_result
+    session['q1'] + session['q2'] + session['q3'] + session['q4'] + session['q5']
   end
 end
 
@@ -42,38 +18,104 @@ get '/' do
     File.read(File.join('public', 'index.html'))
 end
 
+
 get '/new' do
-  set_secret_number
-  clear_guessed_number
-  redirect to('/play')
+  clear_q1_response
+  clear_q2_response
+  clear_q3_response
+  clear_q4_response
+  clear_q5_response
+  redirect to('/')
 end
 
-[:get, :post].each do |verb|
-  send verb, '/play' do
-    session['guessed_number'] = params['guessed_number'].to_i if params['guessed_number']
 
-     if guessed_correctly?
-        erb :win
-     else
-       erb :play
-     end
+send :get, '/q1' do
+  erb :qn_one
+end
+
+send :post, '/q1' do
+  if params[:num].upcase == 'Y' or params[:num].upcase == 'N'
+    session['q1'] = if params[:num].upcase == 'y' then 1 else 0 end
+  redirect to('/q2')
+  else
+    erb :qn_one
   end
 end
 
+send :get, '/q2' do
+  erb :qn_two
+end
+
+send :post, '/q2' do
+  if params[:num].upcase == 'Y' or params[:num].upcase == 'N'
+    session['q2'] = if params[:num].upcase == 'Y' then 2 else 0 end
+  redirect to('/q3')
+  else
+    erb :qn_two
+  end
+end
+
+send :get, '/q3' do
+  erb :qn_three
+end
+
+send :post, '/q3' do
+  if params[:num].upcase == 'Y' or params[:num].upcase == 'N'
+    session['q3'] = if params[:num].upcase == 'Y' then 4 else 0 end
+  redirect to('/q4')
+  else
+    erb :qn_three
+  end
+end
+
+send :get, '/q4' do
+  erb :qn_four
+end
+
+send :post, '/q4' do
+  if params[:num].upcase == 'Y' or params[:num].upcase == 'N'
+    session['q4'] = if params[:num].upcase == 'Y' then 8 else 0 end
+  redirect to('/q5')
+  else
+    erb :qn_four
+  end
+end
+
+send :get, '/q5' do
+  erb :qn_five
+end
+
+send :post, '/q5' do
+  if params[:num].upcase == 'Y' or params[:num].upcase == 'N'
+    session['q5'] = if params[:num].upcase == 'Y' then 16 else 0 end
+    calc_result
+    redirect to('/final')
+  else
+    erb :qn_five
+  end
+end
+
+
 private
 
-def guessed_correctly?
-  session['guessed_number'] == session['secret_number']
+
+def clear_q1_response
+  session['q1'] = nil
 end
 
-def no_guess_yet?
-  session['guessed_number'].nil?
+def clear_q2_response
+  session['q2'] = nil
 end
 
-def set_secret_number
-  session['secret_number'] = rand(99) + 1
+def clear_q3_response
+  session['q3'] = nil
 end
 
-def clear_guessed_number
-  session['guessed_number'] = nil
+def clear_q4_response
+  session['q4'] = nil
 end
+
+def clear_q5_response
+  session['q5'] = nil
+end
+

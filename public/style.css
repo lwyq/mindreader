@@ -72,7 +72,7 @@ h2 {
   margin-bottom: 0.5em; }
 
 p {
-  line-height: 1.5;
+  line-height: 2;
   margin-bottom: 1em; }
 
 label span {
@@ -124,7 +124,10 @@ label span {
     top: 4px; }
 
 .start {
-  background: -webkit-linear-gradient(305deg, #7a378b, #b44473);
+  background: url("img/crystal_ball.gif"); }
+
+.play {
+background: -webkit-linear-gradient(305deg, #7a378b, #b44473);
   background: linear-gradient(145deg, #7a378b, #b44473);
   background-size: 1000% 1000%;
   -webkit-animation: fade 7s ease infinite;
@@ -146,9 +149,6 @@ label span {
   100% {
     background-position: 0% 50%; } }
 
-.play {
-  background: url("img/bg.jpg"); }
-
 .title {
   font-size: 15vmin;
   margin: 5vmin 0; }
@@ -166,11 +166,11 @@ label span {
           border-radius: 1em;
   background: rgba(0, 0, 0, 0.25); }
 
-.guess-value {
+.response {
   font-size: 10vmin;
   text-align: center;
   width: 4ch;
   margin: 0 auto 1rem; }
 
-.trophy {
-  width: 30vmin; }
+.mindreader {
+  width: 60vmin; }
