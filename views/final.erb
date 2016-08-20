@@ -9,15 +9,16 @@
   <body class="flex play">
     <main class="flex-item">
       <div class="text-wrapper">
-        <h1>You Win!</h1>
+        <h2>The number on your mind is</h2>
 
-        <img class="trophy" src="img/trophy.svg" alt="Trophy">
+        <h1>
+          <%= calc_result %>
+        </h1>
+        <img class="mindreader" src="img/crystal_ball.png" alt="Crystal Ball">
 
-        <h2>
-          You guessed it! I was thinking of the number <%= secret_number %>.
-        </h2>
+        <h2> Amazing? I really read your mind </h2>
 
-        <a class="btn" href="/new">Play Again</a>
+        <a class="btn" href="/new">Play again!</a>
       </div>
     </main>
   </body>

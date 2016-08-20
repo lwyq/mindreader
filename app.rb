@@ -34,8 +34,8 @@ send :get, '/q1' do
 end
 
 send :post, '/q1' do
-  if params[:num].upcase == 'Y' or params[:num].upcase == 'N'
-    session['q1'] = if params[:num].upcase == 'y' then 1 else 0 end
+  if params[:qn1_input].upcase == 'Y' or params[:qn1_input].upcase == 'N'
+    session['q1'] = if params[:qn1_input].upcase == 'Y' then 1 else 0 end
   redirect to('/q2')
   else
     erb :qn_one
@@ -47,8 +47,8 @@ send :get, '/q2' do
 end
 
 send :post, '/q2' do
-  if params[:num].upcase == 'Y' or params[:num].upcase == 'N'
-    session['q2'] = if params[:num].upcase == 'Y' then 2 else 0 end
+  if params[:qn2_input].upcase == 'Y' or params[:qn2_input].upcase == 'N'
+    session['q2'] = if params[:qn2_input].upcase == 'Y' then 2 else 0 end
   redirect to('/q3')
   else
     erb :qn_two
@@ -60,8 +60,8 @@ send :get, '/q3' do
 end
 
 send :post, '/q3' do
-  if params[:num].upcase == 'Y' or params[:num].upcase == 'N'
-    session['q3'] = if params[:num].upcase == 'Y' then 4 else 0 end
+  if params[:qn3_input].upcase == 'Y' or params[:qn3_input].upcase == 'N'
+    session['q3'] = if params[:qn3_input].upcase == 'Y' then 4 else 0 end
   redirect to('/q4')
   else
     erb :qn_three
@@ -73,8 +73,8 @@ send :get, '/q4' do
 end
 
 send :post, '/q4' do
-  if params[:num].upcase == 'Y' or params[:num].upcase == 'N'
-    session['q4'] = if params[:num].upcase == 'Y' then 8 else 0 end
+  if params[:qn4_input].upcase == 'Y' or params[:qn4_input].upcase == 'N'
+    session['q4'] = if params[:qn4_input].upcase == 'Y' then 8 else 0 end
   redirect to('/q5')
   else
     erb :qn_four
@@ -86,14 +86,18 @@ send :get, '/q5' do
 end
 
 send :post, '/q5' do
-  if params[:num].upcase == 'Y' or params[:num].upcase == 'N'
-    session['q5'] = if params[:num].upcase == 'Y' then 16 else 0 end
-    calc_result
+  if params[:qn5_input].upcase == 'Y' or params[:qn5_input].upcase == 'N'
+    session['q5'] = if params[:qn5_input].upcase == 'Y' then 16 else 0 end
     redirect to('/final')
   else
     erb :qn_five
   end
 end
+
+send :get, '/final' do
+  erb :final
+end
+
 
 
 private
@@ -118,4 +122,5 @@ end
 def clear_q5_response
   session['q5'] = nil
 end
+
 

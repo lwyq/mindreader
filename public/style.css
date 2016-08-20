@@ -71,6 +71,7 @@ h1 {
 h2 {
   margin-bottom: 0.5em; }
 
+
 p {
   line-height: 2;
   margin-bottom: 1em; }
@@ -173,4 +174,4 @@ background: -webkit-linear-gradient(305deg, #7a378b, #b44473);
   margin: 0 auto 1rem; }
 
 .mindreader {
-  width: 60vmin; }
+  width: 50vmin; }
