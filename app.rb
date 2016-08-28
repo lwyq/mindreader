@@ -28,6 +28,10 @@ helpers do
   def prompt
     ["Try again. Y or N?", "Invalid response. Enter only Y or N.", "Come on, Y or N?"].sample
   end
+  
+  def final_message
+    ["Amazing? I really read your mind!", "I know this is mind-boggling. Try me again!", "I knew it from reading my crystal ball!"].sample
+  end
 end
 
 
