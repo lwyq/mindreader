@@ -8,23 +8,23 @@
     <link rel="stylesheet" href="style.css">
   </head>
 
+
   <body class="flex play">
     <main class="flex-item">
 
       <div class="text-wrapper">
         <h1>Is your number in HERE?</h1>
 
-        <img class="mindreader" src="img/mindreader1.png" alt="Mindreader1">
+        <img class="mindreader" src="img/mindreader4.png" alt="Mindreader4">
 
         <h2>Please enter Y or N</h2>
-        <p>Try and test me!</p>
+        <p><%= prompt %></p>
 
-
-
-        <form action="/q1" method="post">
-          <input class="response" type="text" name="qn1_input" autofocus />
+        <form action="/q4_again" method="post">
+          <input class="response" type="text" name="qn4_input_again" autofocus />
           <input class="btn" type="submit" value="Next" />
         </form>
+
       </div>
 
     </main>
