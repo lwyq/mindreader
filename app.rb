@@ -59,6 +59,7 @@ end
 send :post, '/q1' do
   if params[:qn1_input].upcase == 'Y' or params[:qn1_input].upcase == 'N'
     session['q1'] = if params[:qn1_input].upcase == 'Y' then 1 elsif params[:qn1_input].upcase == 'N' then 0 end
+    session['q1_again'] = 0
   redirect to('/q2')
   else
     session['q1'] = 0
@@ -87,6 +88,7 @@ end
 send :post, '/q2' do
   if params[:qn2_input].upcase == 'Y' or params[:qn2_input].upcase == 'N'
     session['q2'] = if params[:qn2_input].upcase == 'Y' then 2 else 0 end
+    session['q2_again'] = 0
   redirect to('/q3')
   else
     session['q2'] = 0
@@ -114,6 +116,7 @@ end
 send :post, '/q3' do
   if params[:qn3_input].upcase == 'Y' or params[:qn3_input].upcase == 'N'
     session['q3'] = if params[:qn3_input].upcase == 'Y' then 4 else 0 end
+    session['q3_again'] = 0
   redirect to('/q4')
   else
     session['q3'] = 0
@@ -142,6 +145,7 @@ end
 send :post, '/q4' do
   if params[:qn4_input].upcase == 'Y' or params[:qn4_input].upcase == 'N'
     session['q4'] = if params[:qn4_input].upcase == 'Y' then 8 else 0 end
+    session['q4_again'] = 0
   redirect to('/q5')
   else
     session['q4'] = 0
@@ -171,6 +175,7 @@ end
 send :post, '/q5' do
   if params[:qn5_input].upcase == 'Y' or params[:qn5_input].upcase == 'N'
     session['q5'] = if params[:qn5_input].upcase == 'Y' then 16 else 0 end
+    session['q5_again'] = 0
     redirect to('/final')
   else
     session['q5'] = 0
